@@ -10,7 +10,7 @@ const Details = ({ route, navigation }) => {
 
   return (
     <View style={styles.container}>
-      <ImageBackground 
+      <ImageBackground
         source={item.imageBig}
         style={styles.backgroundImage}
       >
@@ -25,7 +25,7 @@ const Details = ({ route, navigation }) => {
           </View>
         </View>
       </ImageBackground>
-    
+
       <View style={styles.descriptionWrapper}>
         <View style={styles.heartWrapper}>
           <Entypo name='heart' size={32} color={colors.orange} />
@@ -34,6 +34,34 @@ const Details = ({ route, navigation }) => {
           <Text style={styles.descriptionTitle}>Description</Text>
           <Text style={styles.descriptionText}>{item.description}</Text>
         </View>
+
+        <View style={styles.infoWrapper}>
+          <View style={styles.infoItem}>
+            <Text style={styles.infoTitle}>PRICE</Text>
+            <View style={styles.infoTextWrapper}>
+              <Text style={styles.infoText}>${item.price}</Text>
+              <Text style={styles.infoSubText}>/person</Text>
+            </View>
+          </View>
+          <View style={styles.infoItem}>
+            <Text style={styles.infoTitle}>RATING</Text>
+            <View style={styles.infoTextWrapper}>
+              <Text style={styles.infoText}>{item.rating}</Text>
+              <Text style={styles.infoSubText}>/5</Text>
+            </View>
+          </View>
+          <View style={styles.infoItem}>
+            <Text style={styles.infoTitle}>DURATION</Text>
+            <View style={styles.infoTextWrapper}>
+              <Text style={styles.infoText}>{item.duration}</Text>
+              <Text style={styles.infoSubText}> hours</Text>
+            </View>
+          </View>
+        </View>
+
+        <TouchableOpacity style={styles.buttonWrapper}>
+          <Text style={styles.buttonText}>Book Now</Text>
+        </TouchableOpacity>
       </View>
     </View>
   )
@@ -47,19 +75,18 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
   },
   backgroundImage: {
-    height: height*0.6,
+    height: height * 0.6,
     justifyContent: 'space-between',
   },
   descriptionWrapper: {
     flex: 1,
     backgroundColor: colors.white,
     marginTop: -20,
-    borderTopRightRadius: 25,
-    borderTopLeftRadius: 25,
+    borderRadius: 25,
   },
   backIcon: {
-    marginTop: 60,
     marginLeft: 20,
+    marginTop: 60,
   },
   titlesWrapper: {
     marginHorizontal: 20,
@@ -70,7 +97,7 @@ const styles = StyleSheet.create({
     color: colors.white,
   },
   locationWrapper: {
-    flexDirection: "row",
+    flexDirection: 'row',
     alignItems: 'center',
     marginTop: 5,
   },
@@ -81,14 +108,14 @@ const styles = StyleSheet.create({
   heartWrapper: {
     position: 'absolute',
     right: 40,
-    top: -20,
+    top: -30,
     width: 64,
     height: 64,
-    backgroundColor: "white",
+    backgroundColor: colors.white,
     borderRadius: 64,
     justifyContent: 'center',
     alignItems: 'center',
-    shadowColor: "#000",
+    shadowColor: '#000',
     shadowOffset: {
       width: 0,
       height: 2,
@@ -97,7 +124,7 @@ const styles = StyleSheet.create({
     shadowRadius: 3.84,
     elevation: 5,
   },
-  descriptionWrapper: {
+  descriptionTextWrapper: {
     marginTop: 30,
     marginHorizontal: 20,
   },
@@ -111,4 +138,40 @@ const styles = StyleSheet.create({
     color: colors.darkGray,
     height: 85,
   },
-})
+  infoWrapper: {
+    flexDirection: 'row',
+    marginHorizontal: 20,
+    marginTop: 20,
+    justifyContent: 'space-between',
+  },
+  infoItem: {},
+  infoTitle: {
+    fontSize: 12,
+    color: colors.gray,
+  },
+  infoTextWrapper: {
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+    marginTop: 5,
+  },
+  infoText: {
+    fontSize: 24,
+    color: colors.orange,
+  },
+  infoSubText: {
+    fontSize: 14,
+    color: colors.gray,
+  },
+  buttonWrapper: {
+    marginHorizontal: 20,
+    marginTop: 20,
+    backgroundColor: colors.orange,
+    alignItems: 'center',
+    paddingVertical: 15,
+    borderRadius: 10,
+  },
+  buttonText: {
+    fontSize: 18,
+    color: colors.white,
+  },
+});
