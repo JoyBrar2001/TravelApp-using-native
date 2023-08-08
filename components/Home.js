@@ -130,7 +130,7 @@ export default Home
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    color: colors.white,
+    backgroundColor: colors.white,
   },
   menuWrapper: {
     marginHorizontal: 20,

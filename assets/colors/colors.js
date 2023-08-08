@@ -4,6 +4,7 @@ const colors = {
   orange: '#F35D38',
   black: '#0C0D0E',
   white: '#FBFCFE',
+  lightGray: '#00000010',
 };
 
 export default colors;
