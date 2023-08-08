@@ -44,9 +44,15 @@ const Home = ({ navigation }) => {
   );
 
   const renderLearnMoreItem = ({ item }) => (
-    <View>
-
-    </View>
+    <ImageBackground
+      source={item.image}
+      style={[styles.learnMoreItem, {
+        marginLeft: item.id === "learnMore-1" ? 20 : 0,
+      }]}
+      imageStyle={styles.learnMoreItemImage}
+    >
+      <Text style={styles.learnMoreItemText}>{item.title}</Text>
+    </ImageBackground>
   );
 
   return (
@@ -105,7 +111,7 @@ const Home = ({ navigation }) => {
         <View style={styles.learnMoreWrapper}>
           <Text style={styles.learnMoreTitle}>Learn More</Text>
           <View style={styles.learnMoreItemsWrapper}>
-          <FlatList
+            <FlatList
               data={learnMoreData}
               renderItem={renderLearnMoreItem}
               keyExtractor={item => item.id}
@@ -215,5 +221,23 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
     fontSize: 24,
     color: colors.black,
+  },
+  learnMoreItemsWrapper: {
+    paddingVertical: 20,
+  },
+  learnMoreItem: {
+    width: 170,
+    height: 180,
+    justifyContent: 'flex-end',
+    marginRight: 20,
+  },
+  learnMoreItemImage: {
+    borderRadius: 20,
+  },
+  learnMoreItemText: {
+    fontSize: 18,
+    color: colors.white,
+    marginHorizontal: 10,
+    marginVertical: 20,
   },
 })
